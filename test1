@@ -1,0 +1,34 @@
+cd ~/
+curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+git clone https://github.com/torch/distro.git ~/torch --recursive
+cd ~/torch; ./install.sh
+```
+```
+sudo apt-get install libprotobuf-dev protobuf-compiler
+```
+```
+luarocks install loadcaffe
+```
+
+## Step 3: Install neural-style
+
+First we clone `neural-style` from GitHub:
+
+```
+cd ~/
+git clone https://github.com/jcjohnson/neural-style.git
+cd neural-style
+```
+
+Next we need to download the pretrained neural network models:
+
+```
+sh models/download_models.sh
+```
+
+You should now be able to run `neural-style` in CPU mode like this:
+
+```
+th neural_style.lua -gpu -1 -print_iter 1
+```
+
